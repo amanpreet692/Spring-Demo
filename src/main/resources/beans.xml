@@ -16,11 +16,11 @@
     <bean id="friendObj" class="com.aps.spring.xml.FriendClass"/>
 
     <bean id="helloWorld" class="com.aps.spring.xml.SpringXMLDemo" init-method="init" destroy-method="destroy">
-        <property name="message" value="Hello World!"/>
         <constructor-arg name="friendObject" ref="friendObj"/>
+        <property name="message" value="Hello World!"/>
     </bean>
 
-    <bean id="helloWorld1" class="com.aps.spring.xml.SpringXMLDemo" scope="prototype">
+    <bean id="helloWorldProto" class="com.aps.spring.xml.SpringXMLDemo" scope="prototype">
         <property name="message" value="Hello World!"/>
     </bean>
 

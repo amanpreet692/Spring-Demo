@@ -1,6 +1,7 @@
 package com.aps.spring.annotation;
 
 import com.aps.spring.xml.FriendClass;
+import com.aps.spring.xml.SpringXMLDemo;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -53,13 +54,19 @@ public class SpringAnnotationDemo {
         ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
         ((AnnotationConfigApplicationContext) context).registerShutdownHook();
 
-        SpringAnnotationDemo obj = (SpringAnnotationDemo) context.getBean("helloWorld");
-
         //Scope Attribute Demo
         System.out.println("\n\n**** Scope Attribute Demo ****");
+        System.out.println("Singleton:");
+        SpringAnnotationDemo obj = (SpringAnnotationDemo) context.getBean("helloWorld");
         System.out.println("helloWorld: " + obj.getCtr());
         obj = (SpringAnnotationDemo) context.getBean("helloWorld");
         System.out.println("helloWorld: " + obj.getCtr());
+
+        System.out.println("\nPrototype:");
+        obj = (SpringAnnotationDemo) context.getBean("helloWorldProto");
+        System.out.println("helloWorldProto: " + obj.getCtr());
+        obj = (SpringAnnotationDemo) context.getBean("helloWorldProto");
+        System.out.println("helloWorldProto: " + obj.getCtr());
 
         //Collections Demo
         System.out.println("\n\n**** Collections Demo****");

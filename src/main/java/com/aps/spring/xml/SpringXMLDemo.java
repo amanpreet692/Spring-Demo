@@ -55,15 +55,16 @@ public class SpringXMLDemo {
 
         //Scope Attribute Demo
         System.out.println("\n\n**** Scope Attribute Demo ****");
+        System.out.println("Singleton:");
         System.out.println("helloWorld: " + obj.getCtr());
         obj = (SpringXMLDemo) context.getBean("helloWorld");
         System.out.println("helloWorld: " + obj.getCtr());
 
-        obj = (SpringXMLDemo) context.getBean("helloWorld1");
-        System.out.println("helloWorld1: " + obj.getCtr());
-
-        obj = (SpringXMLDemo) context.getBean("helloWorld1");
-        System.out.println("helloWorld1: " + obj.getCtr());
+        System.out.println("\nPrototype:");
+        obj = (SpringXMLDemo) context.getBean("helloWorldProto");
+        System.out.println("helloWorldProto: " + obj.getCtr());
+        obj = (SpringXMLDemo) context.getBean("helloWorldProto");
+        System.out.println("helloWorldProto: " + obj.getCtr());
 
         System.out.println("\n\n**** Collections Demo****");
         List namesList = (List)context.getBean("namesList");

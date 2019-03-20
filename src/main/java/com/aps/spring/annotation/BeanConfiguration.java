@@ -20,11 +20,18 @@ public class BeanConfiguration {
     @Autowired
     private FriendClass friendObj;
 
+
     @Bean(name = "helloWorld", initMethod = "init", destroyMethod = "destroy")
     public SpringAnnotationDemo springAnnotationDemo() {
         SpringAnnotationDemo springAnnotationDemo = new SpringAnnotationDemo(friendObj);
         springAnnotationDemo.setMessage("Hello World!");
         return springAnnotationDemo;
+    }
+
+    @Scope("prototype")
+    @Bean(name = "helloWorldProto")
+    public SpringAnnotationDemo springAnnotationProto() {
+        return new SpringAnnotationDemo();
     }
 
     @Bean
